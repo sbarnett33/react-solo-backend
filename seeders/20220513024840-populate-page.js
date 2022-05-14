@@ -1,32 +1,37 @@
-'use strict';
+"use strict";
 
 const { faker } = require('@faker-js/faker');
 
+
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     
-    let tripPlans = [];
-
-    for (let i = 0; i < 20; i++) {
-      tripPlans.push({
-        title: faker.hacker.phrase(),
-        body: faker.address.city(),
+    let users =[];
+    
+    for (let i = 0; i < 10; i++) {
+      user.push({
+        firstName: faker.name.findName(),
+        lastName: faker.name.findName(),
+        useremail: faker.internet.email(),
+        userpassword: faker.phone.phoneNumber(),
+        createdAt: new Date(),
         updatedAt: new Date(),
-        createdAt: new Date() 
-
       })
     }
 
-    return queryInterface.bulkInsert('TripPlans', tripPlans);
-
+    await queryInterface.bulkDelete("Users", users)
   },
 
-  async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-  }
+  async down(queryInterface, Sequelize) {
+   
+  },
 };
+
+
+
+
+
+
+
+
+
