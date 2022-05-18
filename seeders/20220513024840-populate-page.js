@@ -9,29 +9,22 @@ module.exports = {
     let users =[];
     
     for (let i = 0; i < 10; i++) {
-      user.push({
-        firstName: faker.name.findName(),
-        lastName: faker.name.findName(),
-        useremail: faker.internet.email(),
-        userpassword: faker.phone.phoneNumber(),
+      users.push({
+        first_name: faker.name.findName(),
+        last_name: faker.name.findName(),
+        username: faker.internet.email(),
+        password: faker.phone.phoneNumber(),
         createdAt: new Date(),
         updatedAt: new Date(),
       })
     }
 
-    await queryInterface.bulkDelete("Users", users)
+    await queryInterface.bulkInsert("Users", users)
   },
 
   async down(queryInterface, Sequelize) {
    
   },
 };
-
-
-
-
-
-
-
 
 
