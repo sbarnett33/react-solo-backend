@@ -11,6 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^6.3.1",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
@@ -22,7 +25,6 @@
     "ph": "^0.1.5",
     "sequelize": "^6.19.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sbarnett33/react-solo-backend.git"

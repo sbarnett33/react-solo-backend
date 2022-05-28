@@ -1,24 +1,32 @@
 'use strict';
+
+const dog = require("../models/dog");
+
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Actvities', {
+    await queryInterface.createTable('Reactions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      user_id: {
-        type: Sequelize.INTEGER
-      },
-      actvity: {
+      reaction: {
         type: Sequelize.STRING
       },
-      city: {
-        type: Sequelize.STRING
+      dog_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Dogs',
+          key: 'id',
+        }
       },
-      state: {
-        type: Sequelize.STRING
+      food_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Food',
+          key: 'id',
+        }
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +39,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Actvities');
+    await queryInterface.dropTable('Reactions');
   }
 };
